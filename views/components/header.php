@@ -11,7 +11,7 @@
             <a class="nav-link" aria-current="page" href="home">Accueil</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="add_pokemon_cards">Création d'une carte</a>
+            <a class="nav-link" href="addCards">Création d'une carte</a>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="plant">Pokemon Plante</a>

@@ -5,7 +5,7 @@
   <img src="public/images/pokemon/<?=$pokemon['image']?>" class="card-img-top" alt="<?$pokemon['name']?>">
   <div class="card-body">
 
-    <h5 class="card-title"><?$pokemon['name']?></h5>
+    <h5 class="card-title"><?=$pokemon['name'] ?></h5>
 
     <p class="card-text d-flex justify-content-between">
         <span><b>Santé</b></span>
@@ -24,7 +24,10 @@
 
     <div class="d-flex justify-content-between">
         <a href="#" class="btn btn-primary">Modifier</a>
-        <a href="#" class="btn btn-danger">Supprimer</a>
+        <form action="deleteCard" method="POST">
+            <input type="hidden" value="<?=$pokemon['id']?>" name="id">
+            <button class="btn btn-danger">Supprimer</button>
+        </form>
     </div>
   </div>
 </div>

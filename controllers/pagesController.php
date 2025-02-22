@@ -19,21 +19,16 @@ function homePage(): void{
     render($datas_page);
 }
 
+function addCards(): void{
 
-function testPage(): void{
-
-    $donnees_recup = [
-        "name" => "John",
-        "lastname" => "Doe",
-        "age" => 27,
-    ];
+    $types = getAllTypes();
 
     $datas_page = [
-        "description" => "Page de test du site",
-        "title" => "Page de test",
-        "view" => "views/pages/test.php",
+        "description" => "Page de création de carte",
+        "title" => "Page de création",
+        "view" => "views/pages/addCards.php",
         "layout" => "views/components/layout.php",
-        "datas_recep" => $donnees_recup
+        "types" => $types,
     ];
     render($datas_page);
 }

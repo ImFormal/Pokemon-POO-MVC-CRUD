@@ -1,0 +1,9 @@
+ #Demande de la réécriture de l'url
+RewriteEngine On
+
+#Vérifie si on est hors d'un dossier/fichier
+RewriteCond %{REQUEST_FILENAME} !-f 
+RewriteCond %{REQUEST_FILENAME} !-d
+
+#Réécriture de l'url (On accède à la page qui passera en argument dans l'url)
+RewriteRule ^(.*)$ index.php?page=$1

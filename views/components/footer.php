@@ -1,0 +1,1 @@
+<footer><p class="text-center border-top border-2 border-black py-4 mt-5">Projet en Php / MVC</p></footer>

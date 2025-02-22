@@ -4,6 +4,9 @@ require_once "controllers/pagesController.php";
 require_once "controllers/crudController.php";
 require_once "controllers/apiController.php";
 require_once "controllers/utils.php";
+$pageController = new PagesController();
+$crudController = new CrudController();
+$apiController = new ApiController();
 
 if(empty($_GET['page'])) {
     $page = "home";
@@ -15,11 +18,11 @@ if(empty($_GET['page'])) {
 try{
     switch($page){
         case "home":
-            homePage();
+            $pageController->homePage();
             break;
 
         case "addCards":
-            addCards();
+            $pageController->addCards();
             break;
 
         case "createNewCard":
@@ -34,17 +37,17 @@ try{
                 throw new Exception("Tous les champs sont obligatoires !");
             }
 
-            createCurrentCard($name, $image, $health, $attack,$attackspe, $type);
+            $crudController->createCurrentCard($name, $image, $health, $attack,$attackspe, $type);
             break;
         
         case "deleteCard":
             $id = $_POST['id'];
-            deleteCurrentCard($id);
+            $crudController->deleteCurrentCard($id);
             break;
 
         case "updateCard":
             $id = $_POST['id'];
-            updateCards($id);
+            $pageController->updateCards($id);
             break;
 
         case "updateNewCard":
@@ -60,28 +63,28 @@ try{
                 throw new Exception("Tous les champs sont obligatoires !");
             }
 
-            updateCurrentCard($id, $name, $image, $health, $attack,$attackspe, $type);
+            $crudController->updateCurrentCard($id, $name, $image, $health, $attack,$attackspe, $type);
             break;
 
         case "plant":
-            plantPokemonCards();
+            $pageController->plantPokemonCards();
             break;
 
         case "water":
-            waterPokemonCards();
+            $pageController->waterPokemonCards();
             break;
 
         case "fire":
-            firePokemonCards();
+            $pageController->firePokemonCards();
             break;
 
         case "apiCards":
-            apiCards();
+            $apiController->apiCards();
             break;
 
         default:
             throw new Exception("La page n'existe pas");  
     }
 } catch(Exception $e){
-    echo "Erreur : " . $e->getMessage();
+   $pageController->errorPage($e->getMessage());
 }

@@ -1,33 +1,41 @@
 <?php 
 
-require_once 'models/crudModel.php';
+require_once "models/crudModel.php";
 
-function createCurrentCard($name, $image, $health, $attack, $attackspe, $type): void{
+class CrudController {
 
-    if(createCurrentCardDB($name, $image, $health, $attack, $attackspe, $type)){
-        header("Location:home");
-        exit;
-    } else{
-        throw new Exception("Echec de la création de la carte !");
+    private $crudModel;
+    public function __construct() {
+        $this->crudModel = new CrudModel();
     }
-}
 
-function deleteCurrentCard($id): void{
+    public function createCurrentCard($name, $image, $health, $attack, $attackspe, $type): void{
 
-    if(deleteCurrentCardDB($id)){
-        header("Location:home");
-        exit;
-    } else{
-        throw new Exception("Echec de la suppression de la carte !");
+        if($this->crudModel->createCurrentCardDB($name, $image, $health, $attack, $attackspe, $type)){
+            header("Location:home");
+            exit;
+        } else{
+            throw new Exception("Echec de la création de la carte !");
+        }
     }
-}
-
-function updateCurrentCard($id, $name, $image, $health, $attack, $attackspe, $type): void{
-
-    if(updateCurrentCardDB($id, $name, $image, $health, $attack, $attackspe, $type)){
-        header("Location:home");
-        exit;
-    } else{
-        throw new Exception("Echec de la modification de la carte !");
+    
+    public function deleteCurrentCard($id): void{
+    
+        if($this->crudModel->deleteCurrentCardDB($id)){
+            header("Location:home");
+            exit;
+        } else{
+            throw new Exception("Echec de la suppression de la carte !");
+        }
+    }
+    
+    public function updateCurrentCard($id, $name, $image, $health, $attack, $attackspe, $type): void{
+    
+        if($this->crudModel->updateCurrentCardDB($id, $name, $image, $health, $attack, $attackspe, $type)){
+            header("Location:home");
+            exit;
+        } else{
+            throw new Exception("Echec de la modification de la carte !");
+        }
     }
 }

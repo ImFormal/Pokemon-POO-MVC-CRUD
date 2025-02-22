@@ -2,18 +2,22 @@
 
 require_once "models/pdoModel.php";
 
-function getAllTypes(): array|null{
+class TypesModel extends PdoModel {
 
-    try{
-        $req = "SELECT * FROM types";
-        $stmt = setDB()->prepare($req);
-        $stmt->execute();
-        $datas = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $stmt->closeCursor();
+    public function getAllTypes(): array|null{
 
-        return $datas;
-    } catch(PDOException $e){
-        echo $e->getMessage();
-        return null;
+        try{
+            $req = "SELECT * FROM types";
+            $stmt = $this->setDB()->prepare($req);
+            $stmt->execute();
+            $datas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $stmt->closeCursor();
+    
+            return $datas;
+        } catch(PDOException $e){
+            echo $e->getMessage();
+            return null;
+        }
     }
+
 }

@@ -2,6 +2,7 @@
 
 require_once "controllers/pagesController.php";
 require_once "controllers/crudController.php";
+require_once "controllers/apiController.php";
 require_once "controllers/utils.php";
 
 if(empty($_GET['page'])) {
@@ -72,6 +73,10 @@ try{
 
         case "fire":
             firePokemonCards();
+            break;
+
+        case "apiCards":
+            apiCards();
             break;
 
         default:

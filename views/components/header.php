@@ -22,6 +22,9 @@
             <li class="nav-item">
             <a class="nav-link" href="fire">Pokemon Feu</a>
             </li>
+            <li class="nav-item">
+            <a class="nav-link" href="apiCards">API</a>
+            </li>
         </ul>
         </div>
     </div>

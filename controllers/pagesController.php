@@ -32,3 +32,61 @@ function addCards(): void{
     ];
     render($datas_page);
 }
+
+function updateCards($id): void{
+
+    $types = getAllTypes();
+    $pokemon = getPokemon($id);
+
+    $datas_page = [
+        "description" => "Page de modification de carte",
+        "title" => "Page de modification",
+        "view" => "views/pages/updateCards.php",
+        "layout" => "views/components/layout.php",
+        "types" => $types,
+        "pokemon" => $pokemon,
+    ];
+    render($datas_page);
+}
+
+function plantPokemonCards(): void{
+
+    $pokemon = getPokemonByType('plant');
+
+    $datas_page = [
+        "description" => "Page des cartes de type plante",
+        "title" => "Page des cartes type plante",
+        "view" => "views/pages/plant.php",
+        "layout" => "views/components/layout.php",
+        "pokemons" => $pokemon,
+    ];
+    render($datas_page);
+}
+
+function waterPokemonCards(): void{
+
+    $pokemon = getPokemonByType('water');
+
+    $datas_page = [
+        "description" => "Page des cartes de type eau",
+        "title" => "Page des cartes type eau",
+        "view" => "views/pages/water.php",
+        "layout" => "views/components/layout.php",
+        "pokemons" => $pokemon,
+    ];
+    render($datas_page);
+}
+
+function firePokemonCards(): void{
+
+    $pokemon = getPokemonByType('fire');
+
+    $datas_page = [
+        "description" => "Page des cartes de type feu",
+        "title" => "Page des cartes type feu",
+        "view" => "views/pages/fire.php",
+        "layout" => "views/components/layout.php",
+        "pokemons" => $pokemon,
+    ];
+    render($datas_page);
+}

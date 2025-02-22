@@ -21,3 +21,13 @@ function deleteCurrentCard($id): void{
         throw new Exception("Echec de la suppression de la carte !");
     }
 }
+
+function updateCurrentCard($id, $name, $image, $health, $attack, $attackspe, $type): void{
+
+    if(updateCurrentCardDB($id, $name, $image, $health, $attack, $attackspe, $type)){
+        header("Location:home");
+        exit;
+    } else{
+        throw new Exception("Echec de la modification de la carte !");
+    }
+}

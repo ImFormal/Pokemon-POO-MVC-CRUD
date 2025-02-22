@@ -41,6 +41,39 @@ try{
             deleteCurrentCard($id);
             break;
 
+        case "updateCard":
+            $id = $_POST['id'];
+            updateCards($id);
+            break;
+
+        case "updateNewCard":
+            $id = $_POST["id"];
+            $name = htmlspecialchars($_POST["name"]);
+            $image = htmlspecialchars($_POST["image"]);
+            $health = htmlspecialchars($_POST["health"]);
+            $attack = htmlspecialchars($_POST["attack"]);
+            $attackspe = htmlspecialchars($_POST["attackspe"]);
+            $type = htmlspecialchars($_POST["type"]);
+
+            if(empty($name) || empty($image) || empty($health) || empty($attack) || empty($attackspe) || empty($type)){
+                throw new Exception("Tous les champs sont obligatoires !");
+            }
+
+            updateCurrentCard($id, $name, $image, $health, $attack,$attackspe, $type);
+            break;
+
+        case "plant":
+            plantPokemonCards();
+            break;
+
+        case "water":
+            waterPokemonCards();
+            break;
+
+        case "fire":
+            firePokemonCards();
+            break;
+
         default:
             throw new Exception("La page n'existe pas");  
     }

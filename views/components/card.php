@@ -23,7 +23,11 @@
     </p>
 
     <div class="d-flex justify-content-between">
-        <a href="#" class="btn btn-primary">Modifier</a>
+        <form action="updateCard" method="POST">
+            <input type="hidden" value="<?=$pokemon['id']?>" name="id">
+            <button class="btn btn-primary">Modifier</button>
+        </form>
+
         <form action="deleteCard" method="POST">
             <input type="hidden" value="<?=$pokemon['id']?>" name="id">
             <button class="btn btn-danger">Supprimer</button>
